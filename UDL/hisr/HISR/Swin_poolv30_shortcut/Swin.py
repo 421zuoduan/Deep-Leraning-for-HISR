@@ -377,7 +377,7 @@ class WindowInterAttention(nn.Module):
         x = x.reshape(B, self.kernels_num, C, H, W)
 
         # x:  B, C, H, W
-        x = torch.sum(x, dim=1).squeeze()
+        x = torch.sum(x, dim=1).reshape(B, C, H, W)
 
         # x:  B, C, H, W
         x = self.proj_out(x)

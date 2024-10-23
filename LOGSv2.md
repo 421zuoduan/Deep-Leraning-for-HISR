@@ -59,6 +59,8 @@ Swin_poolv28: head 8, win_size 8, 窗口大小不变, v10基础上, 加入kernel
 
 Swin_poolv29: head 8, win_size 8, 窗口大小不变, pool生成全局卷积核, fusion生成全局卷积核(nW*c->c, groupconv实现), SK生成全局卷积核, 三个全局卷积核和原图卷积, feature map经fusion成一张图片
 
+Swin_poolv30: head 8, win_size 8, 窗口大小不变, v29_nopoolgk基础上, 使用SKConv聚合feature map
+
 
 ### 分组卷积聚合信息
 
@@ -132,8 +134,9 @@ Swin_qkvv4: head 8, win_size 8, 窗口大小不变, v2基础上, 直接替换原
 |Swin_poolv29_nopoolsumgk|8|8|×|2000|2.1372941|1.0983535|51.4333725|0.449M|2号机 UDL|20240229|
 |Swin_poolv29_groupfusion|8|8|×|2000|2.0734979|1.1242253|51.4686924|0.800M|6号机 UDL|20240229|
 |Swin_poolv29_winkfusion|8|8|×|2000|2.0727947|1.1188617|51.4280007|0.802M|6号机 UDLv2|20240229|
-|Swin_poolv30|8|8|×|2000||||0.809M|2号机 UDL|20240301|
-|Swin_poolv30_shortcut|8|8|×|2000||||0.809M|2号机 UDL|20240301|
+|Swin_poolv30|8|8|×|2000|2.0600387|1.1338491|51.4503399|0.809M|2号机 UDL|20240301|
+|Swin_poolv30_shortcut|8|8|×|2000|2.0532673|1.1105062|51.5837933|0.809M|6号机 UDL|20240301|
+
 
 
 |Swin_poolv22_normalconv|8|8|×|2000|2.1610719|1.1718743|51.1293605|0.732M|6号机 UDL|20240227|
